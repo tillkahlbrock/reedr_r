@@ -1,2 +1,13 @@
-<h1>Feeds#index</h1>
-<p>Find me in app/views/feeds/index.html.erb</p>
+<h1>Feeds</h1>
+<table>
+<tr>
+  <th>Title</th>
+  <th>Url</th>
+</tr>
+<% @feeds.each do |feed| %>
+<tr>
+  <td><%= feed.title %></td>
+  <td><%= feed.url %></td>
+</tr>
+<% end %>
+</table>

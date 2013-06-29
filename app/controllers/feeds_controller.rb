@@ -1,8 +1,11 @@
 class FeedsController < ApplicationController
   def index
+    @feeds = Feed.all
   end
+
   def new
   end
+
   def create
     @feed = Feed.new(post_params)
     @feed.save
@@ -12,9 +15,10 @@ class FeedsController < ApplicationController
   def show
     @feed = Feed.find(params[:id])
   end
- 
+
 private
   def post_params
     params.require(:feed).permit(:title, :url)
   end
 end
+

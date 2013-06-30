@@ -26,6 +26,10 @@ class FeedsController < ApplicationController
     end
   end
 
+  def issues
+    @issues = Issue.all
+  end
+
 private
   def post_params
     params.require(:feed).permit(:title, :url)

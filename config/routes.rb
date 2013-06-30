@@ -14,6 +14,7 @@ ReedrR::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :feeds
   get 'feeds/:id/load' => 'feeds#load'
+  get 'feeds/:id/issues' => 'feeds#issues'
 
   # Example resource route with options:
   #   resources :products do

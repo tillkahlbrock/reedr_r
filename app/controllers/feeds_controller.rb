@@ -18,9 +18,12 @@ class FeedsController < ApplicationController
   end
 
   def load
+    @issues = []
     feed_reader = FeedReader.new
     issues = feed_reader.read(Feed.find(params[:id]))
-    render text: issues.inspect
+    issues.each do |issue|
+      @issues << Issue.new(issue)
+    end
   end
 
 private

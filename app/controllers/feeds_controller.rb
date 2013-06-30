@@ -12,8 +12,15 @@ class FeedsController < ApplicationController
     
     redirect_to @feed
   end
+
   def show
     @feed = Feed.find(params[:id])
+  end
+
+  def load
+    feed_reader = FeedReader.new
+    issues = feed_reader.read(params[:id])
+    render text: issues.inspect
   end
 
 private

@@ -2,8 +2,7 @@ require 'rss'
 require 'open-uri'
 
 class FeedReader
-  def read feed_id
-    feed = Feed.find(feed_id)
+  def read feed
     url = feed.url
     open(url) do |rss|
       feed = RSS::Parser.parse(rss)

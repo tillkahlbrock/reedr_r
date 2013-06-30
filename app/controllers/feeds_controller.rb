@@ -19,7 +19,7 @@ class FeedsController < ApplicationController
 
   def load
     feed_reader = FeedReader.new
-    issues = feed_reader.read(params[:id])
+    issues = feed_reader.read(Feed.find(params[:id]))
     render text: issues.inspect
   end
 

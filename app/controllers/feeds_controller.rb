@@ -22,7 +22,7 @@ class FeedsController < ApplicationController
     feed_reader = FeedReader.new
     issues = feed_reader.read(Feed.find(params[:id]))
     issues.each do |issue|
-      @issues << Issue.new(issue)
+      @issues << Issue.create(issue)
     end
   end
 

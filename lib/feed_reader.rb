@@ -7,7 +7,7 @@ class FeedReader
     open(url) do |rss|
       feed = RSS::Parser.parse(rss)
       feed.items.inject([]) do |issues, item|
-        issues << { :guid => item.link, :title => item.title, :body => item.description }
+        issues << { :guid => item.link, :title => item.title }
       end
     end
   end

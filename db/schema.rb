@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130630183222) do
+ActiveRecord::Schema.define(version: 20130701075434) do
 
   create_table "feeds", force: true do |t|
     t.string   "title"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20130630183222) do
 
   create_table "issues", force: true do |t|
     t.string   "title"
-    t.text     "body"
     t.integer  "feed_id"
     t.datetime "created_at"
     t.datetime "updated_at"

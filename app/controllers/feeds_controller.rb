@@ -26,6 +26,18 @@ class FeedsController < ApplicationController
     end
   end
 
+  def transfer
+    issues = Issue.where(:synced => false)
+    @transfered = 0
+    issues.each do |issue|
+      if post_to_readability(issue)
+        issue.synced = true
+        issue.save
+        @transfered += 1
+      end
+    end
+  end
+
   def issues
     @issues = Issue.all
   end
@@ -33,6 +45,10 @@ class FeedsController < ApplicationController
 private
   def post_params
     params.require(:feed).permit(:title, :url)
+  end
+
+  def post_to_readability(issue)
+    true
   end
 end
 

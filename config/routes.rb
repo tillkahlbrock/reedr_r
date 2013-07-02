@@ -15,6 +15,7 @@ ReedrR::Application.routes.draw do
   resources :feeds
   get 'feeds/:id/load' => 'feeds#load'
   get 'feeds/:id/issues' => 'feeds#issues'
+  get 'feeds/:id/transfer' => 'feeds#transfer'
 
   # Example resource route with options:
   #   resources :products do

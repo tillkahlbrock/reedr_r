@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130702063944) do
+ActiveRecord::Schema.define(version: 20130702175146) do
 
   create_table "feeds", force: true do |t|
     t.string   "title"
@@ -21,11 +21,12 @@ ActiveRecord::Schema.define(version: 20130702063944) do
   end
 
   create_table "issues", id: false, force: true do |t|
-    t.string   "guid",       null: false
+    t.string   "guid",                       null: false
     t.string   "title"
     t.integer  "feed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "synced",     default: false
   end
 
   add_index "issues", ["feed_id"], name: "index_issues_on_feed_id"

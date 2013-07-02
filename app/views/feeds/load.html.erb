@@ -1,3 +1,12 @@
+<p>
+  <strong>
+    <% if @issues.count > 0 %>
+    <%= @issues.count %> new issues loaded to the database
+    <% else %>
+    everything up to date
+    <% end %>
+  </strong>
+</p>
 <% @issues.each do |issue| %>
 <p>
   <%= issue.guid %>

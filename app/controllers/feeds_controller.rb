@@ -21,8 +21,8 @@ class FeedsController < ApplicationController
     @issues = []
     feed_reader = FeedReader.new
     issues = feed_reader.read(Feed.find(params[:id]))
-    issues.each do |issue|
-      @issues << Issue.create(issue)
+    issues.each do |issue_data|
+      @issues << Issue.create(issue_data) unless Issue.where(guid: issue_data[:guid]).exists?
     end
   end
 

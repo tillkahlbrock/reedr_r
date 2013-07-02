@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130701135949) do
+ActiveRecord::Schema.define(version: 20130702063944) do
 
   create_table "feeds", force: true do |t|
     t.string   "title"
@@ -20,15 +20,14 @@ ActiveRecord::Schema.define(version: 20130701135949) do
     t.datetime "updated_at"
   end
 
-  create_table "issues", force: true do |t|
+  create_table "issues", id: false, force: true do |t|
+    t.string   "guid",       null: false
     t.string   "title"
     t.integer  "feed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "guid"
   end
 
   add_index "issues", ["feed_id"], name: "index_issues_on_feed_id"
-  add_index "issues", ["guid"], name: "index_issues_on_guid", unique: true
 
 end
